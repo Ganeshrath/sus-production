@@ -145,6 +145,9 @@ export default function Layout() {
                 <li>
                   <Link to="/refund" className="text-sm text-muted transition-colors hover:text-primary">Refund & Cancellation</Link>
                 </li>
+                <li>
+                  <Link to="/shipping-and-delivery" className="text-sm text-muted transition-colors hover:text-primary">Shipping & Delivery</Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -158,7 +161,7 @@ export default function Layout() {
           </div>
           <div className="mt-12 border-t border-border pt-8 text-center md:flex md:items-center md:justify-between md:text-left">
             <p className="text-sm text-muted">
-              &copy; {new Date().getFullYear()} Ganesh Rathore. All rights reserved.
+              &copy; 2026 Ganesh Rathor. All rights reserved.
             </p>
           </div>
         </div>

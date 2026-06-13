@@ -11,38 +11,38 @@ export default function Refund() {
         <h1 className="text-3xl font-bold text-white mb-8">Refund & Cancellation Policy</h1>
         
         <div className="text-muted text-sm mb-8 space-y-4">
-          <p>Last Updated: {new Date().toLocaleDateString()}</p>
-          <p>We believe in transparent billing. Please read our refund and cancellation rules carefully before making a purchase.</p>
+          <p>Last updated: June 2026</p>
+          <p>At Sayam, we want you to be completely satisfied with our focus and productivity tools. We offer a transparent window for refund requests.</p>
         </div>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">1. MindLock Subscription Cancellations</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">1. 3-Day Money-Back Guarantee</h2>
           <div className="text-muted space-y-4 text-sm leading-relaxed">
-             <p>You can cancel your MindLock Pro subscription at any time. When you cancel voluntarily, you will continue to have access to the Pro features until the end of your current paid billing period.</p>
-             <p>We do not routinely offer prorated refunds for mid-cycle cancellations of active subscriptions.</p>
+             <p>We provide a strict <strong className="text-white">3-day refund policy</strong> from the date of your initial transaction or subscription purchase. If you find that our Pro features do not meet your expectations, you are entitled to request a full refund within this 72-hour window.</p>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">2. AssignMate Per-Document Purchases</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">2. How to Request a Refund</h2>
           <div className="text-muted space-y-4 text-sm leading-relaxed">
-             <p>Because AssignMate provides a fully featured, watermarked preview before you pay, <strong>all AssignMate document purchases are generally final and non-refundable</strong> once the clean file is successfully delivered or generated.</p>
-             <p>Please review your watermarked preview carefully to ensure formatting and contents are correct before checking out via Razorpay.</p>
+             <p>To initiate a refund request, you must reach out directly via email.</p>
+             <ul className="list-disc pl-5 space-y-2">
+               <li>There are no automated refund or cancellation buttons built directly inside the mobile application interface.</li>
+               <li>Send an explicit refund request email to our official support address: <strong className="text-white">rathorganesh35@gmail.com</strong>.</li>
+               <li>Please include your account login email and the Razorpay transaction payment reference ID to expedite processing.</li>
+             </ul>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">3. Exceptional Circumstances</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">3. Processing and Timelines</h2>
           <div className="text-muted space-y-4 text-sm leading-relaxed">
-             <p>In the event of a technical failure on our end (e.g., your payment succeeds but the document fails to generate or deliver entirely, or the app crashes preventing access), please contact support within 7 days.</p>
-             <p>We will review logs and, if a failure is verified, issue a full refund to your original payment method via Razorpay within 5-7 business days.</p>
-          </div>
-        </section>
-        
-        <section className="mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">4. Contacting Support</h2>
-          <div className="text-muted space-y-4 text-sm leading-relaxed">
-             <p>To request a refund under technical failure, please email: <strong>rathorganesh35@gmail.com</strong> providing your Razorpay payment ID and a description of the issue.</p>
+             <p>Once your email request is received and verified to be within the 3-day eligible window:</p>
+             <ul className="list-disc pl-5 space-y-2">
+               <li>Your access to the Pro features will be deactivated.</li>
+               <li>The refund will be initiated immediately on our dashboard.</li>
+               <li>Per standard banking and payment aggregator timelines, the refunded amount will reflect back in your original payment source (Bank Account, UPI, or Card) within <strong className="text-white">5 to 7 working days</strong>.</li>
+             </ul>
           </div>
         </section>
       </motion.div>

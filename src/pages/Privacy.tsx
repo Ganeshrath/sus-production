@@ -11,8 +11,8 @@ export default function Privacy() {
         <h1 className="text-3xl font-bold text-white mb-8">Privacy Policy</h1>
         
         <div className="text-muted text-sm mb-8 space-y-4">
-          <p>Last Updated: {new Date().toLocaleDateString()}</p>
-          <p>Ganesh Rathore ("we", "our", or "us") operates the Sayam applications, including MindLock and AssignMate.</p>
+          <p>Last Updated: June 2026</p>
+          <p>Ganesh Rathor ("we", "our", or "us") operates the Sayam applications, including MindLock and AssignMate.</p>
         </div>
 
         <section className="mb-8">

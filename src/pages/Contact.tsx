@@ -23,7 +23,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-base font-semibold text-white">Email Address</h3>
                 <p className="mt-2 text-sm text-muted">
-                  The quickest way to reach me for support and inquiries.
+                  The quickest way to reach us for support and inquiries.
                 </p>
                 <p className="mt-4">
                   <a href="mailto:rathorganesh35@gmail.com" className="text-primary hover:text-primary-hover font-medium">
@@ -43,8 +43,8 @@ export default function Contact() {
                   Available Mon-Fri, 10am to 6pm IST.
                 </p>
                 <p className="mt-4">
-                  <a href="tel:+91XXXXXXXXXX" className="text-primary hover:text-primary-hover font-medium">
-                    +91 XX XXXX XXXX
+                  <a href="tel:+918696611363" className="text-primary hover:text-primary-hover font-medium">
+                    +91 86966 11363
                   </a>
                 </p>
               </div>
@@ -55,11 +55,12 @@ export default function Contact() {
                 <MapPin className="h-5 w-5 text-white" />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-white">Operator Address</h3>
-                <p className="mt-2 text-sm text-muted line-clamp-3">
-                  Ganesh Rathore<br />
-                  Jhansi, Uttar Pradesh<br />
-                  India
+                <h3 className="text-base font-semibold text-white">Operator & Registered Address</h3>
+                <p className="mt-2 text-sm text-muted leading-relaxed">
+                  Ganesh Rathor<br />
+                  Vill Dabda Kalan, Sub District Singoli,<br />
+                  District Neemuch, Madhya Pradesh,<br />
+                  India - 458226
                 </p>
               </div>
             </div>
@@ -75,7 +76,7 @@ export default function Contact() {
           <div className="rounded-[--radius-custom] border border-border bg-surface p-8 shadow-sm">
              <h2 className="text-xl font-bold text-white mb-6">About the Operator</h2>
              <p className="text-sm text-muted mb-4 leading-relaxed">
-               Sayam is operated independently by Ganesh Rathore. 
+               Sayam is operated independently by Ganesh Rathor. 
                The goal is to provide reliable, distraction-free productivity tools that respect user time and privacy.
              </p>
              <p className="text-sm text-muted leading-relaxed">
