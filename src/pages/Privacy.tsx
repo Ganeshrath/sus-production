@@ -12,7 +12,7 @@ export default function Privacy() {
         
         <div className="text-muted text-sm mb-8 space-y-4">
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
-          <p>Ganesh Rathore ("we", "our", or "us") operates the Systematic Use System (SUS) applications, including MindLock and AssignMate.</p>
+          <p>Ganesh Rathore ("we", "our", or "us") operates the Sayam applications, including MindLock and AssignMate.</p>
         </div>
 
         <section className="mb-8">

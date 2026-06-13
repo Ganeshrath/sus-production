@@ -14,7 +14,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Be productive.
+            Do What Matters.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-6 text-lg leading-8 text-muted sm:text-xl"
           >
-            Systematic Use System (SUS) provides simple, focused productivity tools with fair, transparent, pay-as-you-go pricing.
+            Sayam provides simple, focused productivity tools with fair, transparent, pay-as-you-go pricing.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,11 +104,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why SUS Section */}
+      {/* Why Sayam Section */}
       <section className="px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Why SUS?</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Why Sayam?</h2>
           </div>
           
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

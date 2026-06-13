@@ -75,7 +75,7 @@ export default function Contact() {
           <div className="rounded-[--radius-custom] border border-border bg-surface p-8 shadow-sm">
              <h2 className="text-xl font-bold text-white mb-6">About the Operator</h2>
              <p className="text-sm text-muted mb-4 leading-relaxed">
-               Systematic Use System (SUS) is operated independently by Ganesh Rathore. 
+               Sayam is operated independently by Ganesh Rathore. 
                The goal is to provide reliable, distraction-free productivity tools that respect user time and privacy.
              </p>
              <p className="text-sm text-muted leading-relaxed">

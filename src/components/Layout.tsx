@@ -25,7 +25,7 @@ export default function Layout() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <span className="text-xl font-bold tracking-tight text-white">SUS</span>
+            <span className="text-xl font-bold tracking-tight text-white">Sayam</span>
           </Link>
 
           <nav className="hidden md:flex md:items-center md:gap-8">
@@ -74,7 +74,7 @@ export default function Layout() {
             >
               <div className="flex items-center justify-between">
                 <Link to="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-                  <span className="text-xl font-bold tracking-tight text-white">SUS</span>
+                  <span className="text-xl font-bold tracking-tight text-white">Sayam</span>
                 </Link>
                 <button
                   type="button"
@@ -116,10 +116,10 @@ export default function Layout() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
             <div>
-              <span className="text-lg font-bold tracking-tight text-white">SUS</span>
+              <span className="text-lg font-bold tracking-tight text-white">Sayam</span>
               <p className="mt-4 text-sm text-muted">
-                Systematic Use System.<br />
-                Be productive.
+                Sayam.<br />
+                Do What Matters.
               </p>
             </div>
             <div>

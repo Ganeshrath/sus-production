@@ -12,7 +12,7 @@ export default function Terms() {
         
         <div className="text-muted text-sm mb-8 space-y-4">
           <p>Last Updated: {new Date().toLocaleDateString()}</p>
-          <p>These terms and conditions outline the rules and regulations for the use of Systematic Use System's applications (MindLock and AssignMate), operated by Ganesh Rathore.</p>
+          <p>These terms and conditions outline the rules and regulations for the use of Sayam's applications (MindLock and AssignMate), operated by Ganesh Rathore.</p>
         </div>
 
         <section className="mb-8">
