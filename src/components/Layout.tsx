@@ -137,16 +137,16 @@ export default function Layout() {
               <h3 className="text-sm font-semibold text-foreground">Legal</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link to="/privacy" className="text-sm text-muted transition-colors hover:text-primary">Privacy Policy</Link>
+                  <a href="/privacy-policy" className="text-sm text-muted transition-colors hover:text-primary">Privacy Policy</a>
                 </li>
                 <li>
-                  <Link to="/terms" className="text-sm text-muted transition-colors hover:text-primary">Terms & Conditions</Link>
+                  <a href="/terms-and-conditions" className="text-sm text-muted transition-colors hover:text-primary">Terms & Conditions</a>
                 </li>
                 <li>
-                  <Link to="/refund" className="text-sm text-muted transition-colors hover:text-primary">Refund & Cancellation</Link>
+                  <a href="/refund-policy" className="text-sm text-muted transition-colors hover:text-primary">Refund & Cancellation</a>
                 </li>
                 <li>
-                  <Link to="/shipping-and-delivery" className="text-sm text-muted transition-colors hover:text-primary">Shipping & Delivery</Link>
+                  <a href="/shipping-and-delivery" className="text-sm text-muted transition-colors hover:text-primary">Shipping & Delivery</a>
                 </li>
               </ul>
             </div>
@@ -154,7 +154,7 @@ export default function Layout() {
               <h3 className="text-sm font-semibold text-foreground">Contact</h3>
               <ul className="mt-4 space-y-3">
                 <li>
-                  <Link to="/contact" className="text-sm text-muted transition-colors hover:text-primary">Contact Us</Link>
+                  <a href="/contact" className="text-sm text-muted transition-colors hover:text-primary">Contact Us</a>
                 </li>
               </ul>
             </div>
