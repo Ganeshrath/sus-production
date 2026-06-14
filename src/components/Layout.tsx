@@ -140,7 +140,7 @@ export default function Layout() {
                   <a href="/privacy-policy" className="text-sm text-muted transition-colors hover:text-primary">Privacy Policy</a>
                 </li>
                 <li>
-                  <a href="/terms-and-conditions" className="text-sm text-muted transition-colors hover:text-primary">Terms & Conditions</a>
+                  <a href="/terms" className="text-sm text-muted transition-colors hover:text-primary">Terms & Conditions</a>
                 </li>
                 <li>
                   <a href="/refund-policy" className="text-sm text-muted transition-colors hover:text-primary">Refund & Cancellation</a>
