@@ -4,3 +4,10 @@
 /refund-policy          /refund-policy.html          200
 /shipping-and-delivery  /shipping-and-delivery.html  200
 /contact                /contact.html                200
+
+/mindlock/privacy-policy              /mindlock/privacy_policy.html              200
+/mindlock/terms-of-service            /mindlock/terms_of_service.html            200
+/mindlock/refund-policy               /mindlock/subscription_refund_policy.html  200
+/mindlock/accessibility-disclosure    /mindlock/accessibility_disclosure.html    200
+/mindlock/vpn-disclosure              /mindlock/vpn_disclosure.html              200
+/mindlock/google_play_data_safety     /mindlock/google_play_data_safety.html     200

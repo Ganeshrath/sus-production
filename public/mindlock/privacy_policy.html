@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – MindLock</title>
+  <style>
+    body { background-color: #0f1115; color: #e8eaed; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .card { background-color: #171a21; border: 1px solid #262b35; border-radius: 14px; padding: 40px; margin-top: 20px; }
+    h1 { color: #ffffff; font-size: 2.25rem; font-weight: 700; margin-top: 0; margin-bottom: 10px; }
+    h2 { color: #ffffff; font-size: 1.5rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #262b35; padding-bottom: 8px; }
+    h3 { color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-top: 25px; margin-bottom: 10px; }
+    p { color: #9aa1ab; font-size: 0.95rem; margin-bottom: 15px; }
+    strong { color: #ffffff; }
+    a { color: #5b8cff; text-decoration: none; font-weight: 500; }
+    a:hover { color: #4a75e6; text-decoration: underline; }
+    .meta { color: #9aa1ab; font-size: 0.85rem; margin-bottom: 30px; }
+    ul { color: #9aa1ab; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px; }
+    li { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #262b35; padding: 10px; text-align: left; font-size: 0.95rem; color: #9aa1ab; }
+    th { background-color: #0f1115; color: #ffffff; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PRIVACY POLICY</h1>
+    <div class="meta"><strong>MindLock — Digital Wellness Application</strong><br>Last Updated: June 14, 2025<br>Effective Date: June 14, 2025</div>
+    
+    <h2>1. INTRODUCTION</h2>
+    <p>Welcome to MindLock ("the App", "we", "our", "us"). MindLock is a digital wellness application developed and operated by <strong>Ganesh Rathor</strong>, an individual operating from Ward No. 23, Gram Panchayat Dal Dabra Kalan, Athva, Neemuch, Madhya Pradesh — 458226, India.</p>
+    <p>This Privacy Policy explains how MindLock collects, uses, stores, protects, and handles your personal information when you use our App. By downloading, installing, or using MindLock, you agree to the practices described in this Privacy Policy.</p>
+    <p>If you do not agree with any part of this Privacy Policy, please do not use the App.</p>
+
+    <h2>2. INFORMATION WE COLLECT</h2>
+    <h3>2.1 Information You Provide Directly</h3>
+    <p><strong>Account Information</strong><br>
+    When you create a MindLock account, we collect:</p>
+    <ul>
+      <li>Your email address</li>
+      <li>Your password (stored in encrypted form via Supabase Auth — we never see your plain-text password)</li>
+    </ul>
+    <p>We do not collect your name, phone number, or any other personal identifier unless you voluntarily provide it in support communications.</p>
+
+    <p><strong>Support Communications</strong><br>
+    If you contact us at <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a>, we receive your email address and the content of your message. We use this solely to respond to your inquiry.</p>
+
+    <h3>2.2 Information Collected Automatically</h3>
+    <p><strong>App Usage Data (Stored Locally on Your Device)</strong></p>
+    <p>MindLock collects the following data to provide its core features. The majority of this data is stored <strong>only on your device</strong> in a local database and is never transmitted to our servers:</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>What It Is</th>
+          <th>Why We Collect It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Blocked app sessions</td>
+          <td>Which apps you opened and when you opened them</td>
+          <td>To enforce focus sessions and show you your usage patterns</td>
+        </tr>
+        <tr>
+          <td>Intent statements</td>
+          <td>The purpose you typed when opening a blocked app</td>
+          <td>To track intentional vs impulsive phone use</td>
+        </tr>
+        <tr>
+          <td>Focus session records</td>
+          <td>When you started focus sessions, how long they lasted, whether completed</td>
+          <td>To show your focus history and calculate XP rewards</td>
+        </tr>
+        <tr>
+          <td>Challenge records</td>
+          <td>Which challenges you started and completed</td>
+          <td>To award XP and track streaks</td>
+        </tr>
+        <tr>
+          <td>Doom scroll sessions</td>
+          <td>How long you scrolled in short-video sections, scroll count</td>
+          <td>To detect and interrupt doom scrolling</td>
+        </tr>
+        <tr>
+          <td>Block schedule data</td>
+          <td>The schedules you created for blocking apps</td>
+          <td>To enforce scheduled blocking</td>
+        </tr>
+        <tr>
+          <td>Content filter logs</td>
+          <td>Domain names of blocked adult websites (not page content)</td>
+          <td>To show you your content protection stats</td>
+        </tr>
+        <tr>
+          <td>Strict mode events</td>
+          <td>When strict mode was activated and for how long</td>
+          <td>To enforce strict mode settings</td>
+        </tr>
+        <tr>
+          <td>Brain health scores</td>
+          <td>Daily scores calculated from your usage patterns</td>
+          <td>To display brain health visualization</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>App Usage Statistics (via Android UsageStatsManager)</strong></p>
+    <p>With your permission, MindLock reads:</p>
+    <ul>
+      <li>Time spent in each installed app today</li>
+      <li>Which apps you have used</li>
+    </ul>
+    <p>This data is read directly from Android's built-in UsageStats system. It is used only to calculate your Brain Health Score and Digital Fingerprint statistics. This data is processed on your device and is never transmitted to our servers in raw form.</p>
+
+    <p><strong>Device Information (Synced to Cloud)</strong></p>
+    <p>When you create an account, we may sync the following minimal information to our servers:</p>
+    <ul>
+      <li>App version number</li>
+      <li>Device model (e.g. "Samsung Galaxy A54")</li>
+      <li>Your timezone (e.g. "Asia/Kolkata")</li>
+    </ul>
+    <p>This is used to provide appropriate support and ensure compatibility.</p>
+
+    <h3>2.3 Data Synced to Cloud</h3>
+    <p>When you are logged in to a MindLock account and have an internet connection, the following <strong>aggregated, anonymised summary data</strong> is synced to our servers (Supabase) to preserve your progress across reinstalls:</p>
+    <ul>
+      <li>Daily brain health scores (0–100 number only, not raw session data)</li>
+      <li>Current streak and best streak (day counts)</li>
+      <li>Total XP and current level</li>
+      <li>Total challenges completed (count only)</li>
+      <li>Daily usage summaries: total screen time, focus minutes, reel count, scroll count</li>
+    </ul>
+
+    <p><strong>What is NOT synced to our servers:</strong></p>
+    <ul>
+      <li>The content of your intent statements</li>
+      <li>Specific websites you visited</li>
+      <li>Individual app open timestamps</li>
+      <li>The content of any accessibility events</li>
+      <li>Passwords, payment card details, or banking information</li>
+    </ul>
+
+    <h2>3. HOW WE USE YOUR INFORMATION</h2>
+    <p>We use your information for the following purposes only:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Purpose</th>
+          <th>Data Used</th>
+          <th>Basis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Provide app blocking features</td>
+          <td>Blocked app list, session records</td>
+          <td>Contract (providing the service you signed up for)</td>
+        </tr>
+        <tr>
+          <td>Calculate Brain Health Score</td>
+          <td>Usage stats, session data</td>
+          <td>Contract</td>
+        </tr>
+        <tr>
+          <td>Restore your progress after reinstall</td>
+          <td>Cloud-synced scores and streaks</td>
+          <td>Contract</td>
+        </tr>
+        <tr>
+          <td>Verify your subscription</td>
+          <td>Email address, Razorpay payment confirmation</td>
+          <td>Contract</td>
+        </tr>
+        <tr>
+          <td>Respond to support requests</td>
+          <td>Your email and message</td>
+          <td>Legitimate interest</td>
+        </tr>
+        <tr>
+          <td>Improve the app</td>
+          <td>Aggregated, anonymised crash reports</td>
+          <td>Legitimate interest</td>
+        </tr>
+        <tr>
+          <td>Legal compliance</td>
+          <td>Minimal required records</td>
+          <td>Legal obligation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>We do not:</strong></p>
+    <ul>
+      <li>Use your data for advertising</li>
+      <li>Sell your data to any third party</li>
+      <li>Use your data to train AI models</li>
+      <li>Share your data with any party except as described in Section 5</li>
+    </ul>
+
+    <h2>4. ACCESSIBILITY SERVICE DISCLOSURE</h2>
+    <p>MindLock uses Android's Accessibility Service. Because this is a sensitive permission, we are fully transparent about its use.</p>
+
+    <h3>What the Accessibility Service Does</h3>
+    <p><strong>App Blocking Service (MindLock — App Blocker)</strong></p>
+    <ul>
+      <li>Detects which app is currently in the foreground (which app you just opened)</li>
+      <li>Detects when you are in a short-video section (Instagram Reels, YouTube Shorts, TikTok)</li>
+      <li>Counts scroll events when you are in short-video sections</li>
+      <li>Detects when you navigate to settings pages that could be used to bypass MindLock (only during Strict Mode)</li>
+    </ul>
+
+    <p><strong>Content Filter Service (MindLock — Content Filter)</strong></p>
+    <ul>
+      <li>Detects when a browser is open in incognito/private mode (by reading the window class name only)</li>
+      <li>This service does NOT read URL bar content, page content, or any text you type</li>
+    </ul>
+
+    <h3>What the Accessibility Service Does NOT Do</h3>
+    <ul>
+      <li>Does <strong>not</strong> read passwords, PINs, banking details, or any text you type</li>
+      <li>Does <strong>not</strong> read the content of messages, emails, or any communication</li>
+      <li>Does <strong>not</strong> capture screenshots or record your screen</li>
+      <li>Does <strong>not</strong> read page content of any website</li>
+      <li>Does <strong>not</strong> transmit any accessibility event data outside your device</li>
+      <li>Does <strong>not</strong> remain active when payment or banking apps are open</li>
+    </ul>
+
+    <h3>Why We Need It</h3>
+    <p>Android does not provide a public API to detect the foreground app in real time without using either Accessibility Service or UsageStats polling. We use Accessibility Service because it allows us to detect the precise moment an app opens, which is necessary for the breathing/intent flow in Utility 1 (Per-App Interception) and doom scroll detection in real time.</p>
+
+    <h3>Your Control</h3>
+    <p>You can disable either or both accessibility services at any time via: Settings → Accessibility → Installed Services → MindLock. Disabling the App Blocker service will stop all app blocking functionality. The Content Filter VPN will continue working for domain-level blocking.</p>
+
+    <h2>5. INFORMATION SHARING AND DISCLOSURE</h2>
+    <p>We do not sell, rent, or trade your personal information.</p>
+    <p>We share information only in the following limited circumstances:</p>
+
+    <h3>5.1 Service Providers</h3>
+    <p><strong>Supabase (Supabase Inc., USA)</strong><br>
+    We use Supabase to host our database and user authentication system.</p>
+    <ul>
+      <li>Supabase stores your email address, encrypted password hash, and cloud-synced usage summaries.</li>
+      <li>Supabase is SOC 2 Type II certified and GDPR compliant.</li>
+      <li>Privacy Policy: <a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></li>
+    </ul>
+
+    <p><strong>Razorpay (Razorpay Software Pvt. Ltd., India)</strong><br>
+    We use Razorpay to process subscription payments.</p>
+    <ul>
+      <li>Razorpay processes your payment method and subscription status.</li>
+      <li>We receive only a payment confirmation token — we never see your card number or bank details.</li>
+      <li>Razorpay is PCI DSS compliant and regulated by the Reserve Bank of India.</li>
+      <li>Privacy Policy: <a href="https://razorpay.com/privacy/" target="_blank">https://razorpay.com/privacy/</a></li>
+    </ul>
+
+    <h3>5.2 Legal Requirements</h3>
+    <p>We may disclose your information if required to do so by law, court order, or government authority in India, or if we believe in good faith that disclosure is necessary to protect the rights, property, or safety of MindLock, our users, or the public.</p>
+
+    <h3>5.3 Business Transfer</h3>
+    <p>If MindLock is ever acquired or merged with another entity, your information may be transferred as part of that transaction. You will be notified via email and in-app notification before your data is transferred and becomes subject to a different privacy policy.</p>
+
+    <h2>6. LOCAL VPN AND CONTENT FILTERING</h2>
+    <p>MindLock's Content Filter feature uses a <strong>local VPN</strong> on your device to filter DNS requests.</p>
+    <p><strong>Important facts about this VPN:</strong></p>
+    <ul>
+      <li>It is a local VPN that runs entirely on your device</li>
+      <li>It does not connect to any external VPN server</li>
+      <li>It does not route your internet traffic through any third-party server</li>
+      <li>It does not make you anonymous or hide your IP address</li>
+      <li>Its only function is to block DNS requests to adult content domains</li>
+      <li>All DNS queries are forwarded to Cloudflare Family DNS (1.1.1.3) — a publicly available, privacy-respecting DNS resolver that blocks adult content categories</li>
+    </ul>
+
+    <p><strong>What the VPN does not do:</strong></p>
+    <ul>
+      <li>Does not log which websites you visit</li>
+      <li>Does not transmit your browsing data to us or any third party</li>
+      <li>Does not affect your internet speed significantly</li>
+      <li>Does not access the content of any HTTPS connections</li>
+    </ul>
+    <p>The local VPN is completely optional. You can disable it at any time from MindLock Settings → Content Filter → toggle OFF.</p>
+
+    <h2>7. DATA RETENTION</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Where Stored</th>
+          <th>Retention Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Session records, focus data, brain scores</td>
+          <td>Your device (Room Database)</td>
+          <td>Until you uninstall the app or clear app data</td>
+        </tr>
+        <tr>
+          <td>Daily brain health summaries</td>
+          <td>Supabase cloud</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>Account information (email)</td>
+          <td>Supabase cloud</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>Streak and XP data</td>
+          <td>Supabase cloud</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>Payment records</td>
+          <td>Razorpay</td>
+          <td>As required by law (minimum 5 years per Indian financial regulations)</td>
+        </tr>
+        <tr>
+          <td>Support emails</td>
+          <td>Gmail</td>
+          <td>Deleted within 12 months of resolution</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>8. YOUR RIGHTS AND CHOICES</h2>
+    <h3>8.1 Access Your Data</h3>
+    <p>You may request a summary of the personal data we hold about you by emailing supportmindlock@gmail.com.</p>
+
+    <h3>8.2 Delete Your Data</h3>
+    <p>You may request deletion of your account and all associated cloud data by emailing supportmindlock@gmail.com with the subject line "Account Deletion Request." We will process your request within 7 business days. Local data on your device can be deleted by uninstalling the app.</p>
+
+    <h3>8.3 Correct Your Data</h3>
+    <p>If your email address changes, update it in MindLock Settings → Account. For other corrections, contact supportmindlock@gmail.com.</p>
+
+    <h3>8.4 Opt Out of Cloud Sync</h3>
+    <p>You may use MindLock without creating an account. Guest mode stores all data locally on your device only. No data is synced to our servers.</p>
+
+    <h3>8.5 Disable Accessibility Services</h3>
+    <p>You may disable MindLock's accessibility services at any time via your phone's Accessibility Settings. This will disable app blocking features but will not affect your account or data.</p>
+
+    <h3>8.6 Export Your Data</h3>
+    <p>Pro and Premium users may export their usage data as a CSV file from MindLock Settings → Stats → Export Data.</p>
+
+    <h2>9. CHILDREN'S PRIVACY</h2>
+    <p>MindLock is intended for users aged <strong>13 years and older.</strong> We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child under 13 has created a MindLock account, please contact us at supportmindlock@gmail.com and we will promptly delete the account and associated data.</p>
+    <p>If we discover that a user is under 13, we will immediately deactivate the account and delete all associated data.</p>
+
+    <h2>10. DATA SECURITY</h2>
+    <p>We take reasonable technical and organisational measures to protect your data:</p>
+    <ul>
+      <li><strong>Passwords</strong> are never stored in plain text. We use Supabase Auth which stores bcrypt-hashed passwords only.</li>
+      <li><strong>Data in transit</strong> is encrypted using TLS 1.2 or higher for all communication between the app and Supabase servers.</li>
+      <li><strong>Local data</strong> is stored in Android's protected app storage, accessible only to MindLock.</li>
+      <li><strong>API keys</strong> for Supabase and Razorpay are stored securely and not hardcoded in the app.</li>
+      <li><strong>Accessibility data</strong> never leaves your device.</li>
+    </ul>
+    <p>No system is 100% secure. If you discover a security vulnerability in MindLock, please report it responsibly to supportmindlock@gmail.com.</p>
+
+    <h2>11. THIRD-PARTY LINKS AND SERVICES</h2>
+    <p>MindLock may display links to external websites or open third-party apps. We are not responsible for the privacy practices of those websites or apps. We encourage you to read the privacy policy of any third-party service you interact with.</p>
+
+    <h2>12. CHANGES TO THIS PRIVACY POLICY</h2>
+    <p>We may update this Privacy Policy from time to time. When we make significant changes, we will:</p>
+    <ul>
+      <li>Show an in-app notification to all users</li>
+      <li>Update the "Last Updated" date at the top of this document</li>
+      <li>Email registered users if the changes materially affect how we use their data</li>
+    </ul>
+    <p>Continued use of MindLock after changes take effect constitutes acceptance of the revised Privacy Policy.</p>
+
+    <h2>13. GOVERNING LAW</h2>
+    <p>This Privacy Policy is governed by and construed in accordance with the <strong>Information Technology Act, 2000</strong> and the <strong>Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</strong> of India, and applicable laws of the State of Madhya Pradesh.</p>
+    <p>Any disputes arising out of or in connection with this Privacy Policy shall be subject to the exclusive jurisdiction of the courts in <strong>Neemuch, Madhya Pradesh, India.</strong></p>
+
+    <h2>14. CONTACT US</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact:</p>
+    <p><strong>Ganesh Rathor</strong><br>
+    Developer, MindLock</p>
+    <p>📧 Email: <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a><br>
+    📍 Address: Ward No. 23, Gram Panchayat Dal Dabra Kalan, Athva, Neemuch, Madhya Pradesh — 458226, India</p>
+    <p>We aim to respond to all privacy-related inquiries within <strong>3 business days.</strong></p>
+  </div>
+</body>
+</html>

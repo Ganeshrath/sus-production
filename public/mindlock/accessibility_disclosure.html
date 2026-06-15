@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Service Disclosure – MindLock</title>
+  <style>
+    body { background-color: #0f1115; color: #e8eaed; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .card { background-color: #171a21; border: 1px solid #262b35; border-radius: 14px; padding: 40px; margin-top: 20px; }
+    h1 { color: #ffffff; font-size: 2.25rem; font-weight: 700; margin-top: 0; margin-bottom: 10px; }
+    h2 { color: #ffffff; font-size: 1.5rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #262b35; padding-bottom: 8px; }
+    h3 { color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-top: 25px; margin-bottom: 10px; }
+    h4 { color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-top: 20px; margin-bottom: 10px; }
+    p { color: #9aa1ab; font-size: 0.95rem; margin-bottom: 15px; }
+    strong { color: #ffffff; }
+    a { color: #5b8cff; text-decoration: none; font-weight: 500; }
+    a:hover { color: #4a75e6; text-decoration: underline; }
+    .meta { color: #9aa1ab; font-size: 0.85rem; margin-bottom: 30px; }
+    ul, ol { color: #9aa1ab; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px; }
+    li { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #262b35; padding: 10px; text-align: left; font-size: 0.95rem; color: #9aa1ab; }
+    th { background-color: #0f1115; color: #ffffff; font-weight: 600; }
+    code { background-color: #0f1115; padding: 2px 4px; border-radius: 4px; color: #e8eaed; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>ACCESSIBILITY SERVICE DISCLOSURE</h1>
+    <div class="meta"><strong>MindLock — Digital Wellness Application</strong><br>Last Updated: June 14, 2025</div>
+    
+    <h2>WHY WE USE ACCESSIBILITY SERVICE</h2>
+    <p>MindLock uses Android's Accessibility Service to provide its core app-blocking and screen-monitoring features. This document provides complete transparency about how this sensitive permission is used.</p>
+    <p>This disclosure is provided to satisfy the requirements of:</p>
+    <ul>
+      <li>Google Play Store Accessibility Service policy</li>
+      <li>Android accessibility service declaration requirements</li>
+      <li>Our commitment to full user transparency</li>
+    </ul>
+
+    <h2>WHICH ACCESSIBILITY SERVICES MINDLOCK USES</h2>
+    <p>MindLock declares <strong>two separate accessibility services</strong> in the Android system:</p>
+
+    <h3>Service 1: MindLock — App Blocker</h3>
+    <p><strong>System name:</strong> <code>com.mindlock.service.AppBlockerService</code><br>
+    <strong>canRetrieveWindowContent:</strong> FALSE<br>
+    <strong>Capability level:</strong> Basic event detection only</p>
+
+    <h4>What this service detects:</h4>
+    <p><strong>Window State Changes (TYPE_WINDOW_STATE_CHANGED)</strong></p>
+    <ul>
+      <li>Detects when any app comes to the foreground (i.e., the user opened an app)</li>
+      <li>Used to check if the newly opened app is in the user's blocked apps list</li>
+      <li>If it is blocked: shows the breathing overlay and intent form</li>
+    </ul>
+
+    <p><strong>Window Content Changes (TYPE_WINDOW_CONTENT_CHANGED)</strong></p>
+    <ul>
+      <li>Detects when the content of the current screen changes</li>
+      <li>Used only to detect when a user navigates to a short-video section within social media apps (e.g., switching from Instagram Home to Instagram Reels)</li>
+      <li>Does NOT read the actual content of the screen</li>
+    </ul>
+
+    <p><strong>Scroll Events (TYPE_VIEW_SCROLLED)</strong></p>
+    <ul>
+      <li>Detects when the user performs a scroll gesture</li>
+      <li>Used only within short-video sections to count scrolls for the Doom Scroll Guard feature</li>
+      <li>The scroll count is stored locally on the device only</li>
+    </ul>
+
+    <p><strong>Window titles and class names only (Strict Mode)</strong></p>
+    <ul>
+      <li>During Strict Lock Mode, detects if the user navigates to Android Settings pages about MindLock</li>
+      <li>Reads only the window title/class name (e.g., "Accessibility Settings")</li>
+      <li>Does NOT read the contents of any settings page</li>
+    </ul>
+
+    <h4>What this service does NOT do:</h4>
+    <ul>
+      <li>Does NOT read any text the user types</li>
+      <li>Does NOT read passwords, PINs, or OTPs</li>
+      <li>Does NOT read screen content, page text, or any displayed information</li>
+      <li>Does NOT capture screenshots or record the screen</li>
+      <li>Does NOT transmit any event data outside the device</li>
+      <li>Does NOT function when a banking or payment app is in the foreground</li>
+    </ul>
+
+    <h3>Service 2: MindLock — Content Filter</h3>
+    <p><strong>System name:</strong> <code>com.mindlock.service.ContentWatchService</code><br>
+    <strong>canRetrieveWindowContent:</strong> FALSE<br>
+    <strong>Capability level:</strong> Window class name detection only</p>
+
+    <h4>What this service detects:</h4>
+    <p><strong>Incognito Mode Detection</strong></p>
+    <ul>
+      <li>Detects when a supported browser opens in private/incognito mode</li>
+      <li>Detection method: reads the Activity <strong>class name</strong> of the browser window only
+        <ul>
+          <li>Example: Chrome incognito opens <code>IncognitoNewTabPageActivity</code> — this class name signals private mode</li>
+          <li>No screen content, URL, or browsing history is read</li>
+        </ul>
+      </li>
+      <li>When incognito is detected: shows a full-screen overlay informing the user that private mode is blocked (per the user's own settings)</li>
+    </ul>
+
+    <h4>What this service does NOT do:</h4>
+    <ul>
+      <li>Does NOT read the content of any web page</li>
+      <li>Does NOT read URLs the user visits</li>
+      <li>Does NOT read text the user types in the browser</li>
+      <li>Does NOT access browser history</li>
+      <li>Does NOT transmit any data outside the device</li>
+      <li>Can be disabled by the user at any time without affecting app blocking</li>
+    </ul>
+
+    <h2>HOW DATA FROM ACCESSIBILITY EVENTS IS USED</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Event Data</th>
+          <th>How Used</th>
+          <th>Stored Where</th>
+          <th>Transmitted?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>App package name (which app opened)</td>
+          <td>Check against user's blocked list</td>
+          <td>Device RAM only</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Social media section class name</td>
+          <td>Detect short-video section</td>
+          <td>Device RAM only</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Scroll event count</td>
+          <td>Doom scroll counter displayed to user</td>
+          <td>Device local DB (count only)</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Window title (Strict Mode only)</td>
+          <td>Detect settings bypass attempt</td>
+          <td>Not stored</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Browser class name</td>
+          <td>Detect incognito mode</td>
+          <td>Not stored</td>
+          <td>Never</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>WHAT TRIGGERS THE ACCESSIBILITY SERVICE</h2>
+    <p>The App Blocker service processes events <strong>only</strong> for these package names:</p>
+
+    <p><strong>For app blocking (Utility 1 — Per-App Interception):</strong><br>
+    Any app the user has added to their blocked list. Only TYPE_WINDOW_STATE_CHANGED is processed.</p>
+
+    <p><strong>For doom scroll detection (Utility 2):</strong></p>
+    <ul>
+      <li><code>com.instagram.android</code> (Instagram)</li>
+      <li><code>com.google.android.youtube</code> (YouTube)</li>
+      <li><code>com.zhiliaoapp.musically</code> (TikTok)</li>
+      <li><code>com.snapchat.android</code> (Snapchat)</li>
+      <li><code>com.facebook.katana</code> (Facebook)</li>
+      <li><code>com.reddit.frontpage</code> (Reddit)</li>
+    </ul>
+
+    <p><strong>For incognito detection (Service 2):</strong></p>
+    <ul>
+      <li><code>com.android.chrome</code></li>
+      <li><code>com.google.android.apps.chrome</code></li>
+      <li><code>org.mozilla.firefox</code></li>
+      <li><code>com.brave.browser</code></li>
+      <li><code>com.microsoft.emmx</code></li>
+      <li><code>com.sec.android.app.sbrowser</code></li>
+    </ul>
+    <p><strong>Events for all other apps are ignored.</strong></p>
+
+    <h2>PAYMENT AND BANKING APP SAFETY</h2>
+    <p>MindLock's App Blocker service automatically returns without processing any events when the following types of apps are in the foreground:</p>
+    <ul>
+      <li>UPI payment apps (PhonePe, Google Pay, Paytm, BHIM, etc.)</li>
+      <li>Banking apps (SBI, HDFC, ICICI, Axis, Kotak, etc.)</li>
+      <li>Any browser page showing a payment gateway URL</li>
+    </ul>
+    <p>This means MindLock's accessibility service is effectively paused during all financial transactions, preventing any possibility of it being flagged as a threat by payment security systems.</p>
+
+    <h2>HOW TO VERIFY OUR CLAIMS</h2>
+    <p>You or a security researcher can verify our accessibility service behavior by:</p>
+    <ol>
+      <li><strong>Reading the AndroidManifest.xml</strong> — our accessibility config files declare <code>canRetrieveWindowContent="false"</code> for both services</li>
+      <li><strong>Monitoring network traffic</strong> — no accessibility event data is transmitted over the network (verifiable with a network monitoring tool)</li>
+      <li><strong>Reading the open source config</strong> — our accessibility_service_config.xml declares only the event types listed in this document</li>
+    </ol>
+
+    <h2>HOW TO DISABLE THE ACCESSIBILITY SERVICE</h2>
+    <p>You can disable either MindLock accessibility service at any time:</p>
+    <ol>
+      <li>Open your phone's <strong>Settings</strong></li>
+      <li>Go to <strong>Accessibility</strong> (or Special App Access on some phones)</li>
+      <li>Tap <strong>Installed Services</strong> or <strong>Downloaded Apps</strong></li>
+      <li>Find <strong>MindLock — App Blocker</strong> or <strong>MindLock — Content Filter</strong></li>
+      <li>Toggle it <strong>OFF</strong></li>
+    </ol>
+    <p><strong>Effect of disabling App Blocker:</strong> App blocking, doom scroll guard, focus mode blocking, and challenge enforcement will stop working. Brain health score calculation will continue using UsageStats only.</p>
+    <p><strong>Effect of disabling Content Filter:</strong> Incognito blocking will stop. DNS-based VPN adult content blocking continues independently.</p>
+
+    <h2>ACCESSIBILITY SERVICE AND CHILD SAFETY</h2>
+    <p>MindLock does not use its accessibility service to monitor other people's devices. The service only operates on the device where the user has personally installed MindLock and granted the permission.</p>
+    <p>MindLock must not be installed on another person's device without their full knowledge and consent. Installing MindLock on another person's device without their knowledge may violate applicable Indian laws including the Information Technology Act, 2000.</p>
+
+    <h2>QUESTIONS ABOUT ACCESSIBILITY SERVICE USE</h2>
+    <p>If you have questions about how MindLock uses the Accessibility Service, please contact:</p>
+    <p><strong>Ganesh Rathor</strong><br>
+    Developer, MindLock<br>
+    📧 <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a></p>
+    <p>We will respond to all accessibility-related questions within 3 business days.</p>
+  </div>
+</body>
+</html>

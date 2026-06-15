@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN and Content Filter Disclosure – MindLock</title>
+  <style>
+    body { background-color: #0f1115; color: #e8eaed; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .card { background-color: #171a21; border: 1px solid #262b35; border-radius: 14px; padding: 40px; margin-top: 20px; }
+    h1 { color: #ffffff; font-size: 2.25rem; font-weight: 700; margin-top: 0; margin-bottom: 10px; }
+    h2 { color: #ffffff; font-size: 1.5rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #262b35; padding-bottom: 8px; }
+    h3 { color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-top: 25px; margin-bottom: 10px; }
+    p { color: #9aa1ab; font-size: 0.95rem; margin-bottom: 15px; }
+    strong { color: #ffffff; }
+    a { color: #5b8cff; text-decoration: none; font-weight: 500; }
+    a:hover { color: #4a75e6; text-decoration: underline; }
+    .meta { color: #9aa1ab; font-size: 0.85rem; margin-bottom: 30px; }
+    ul { color: #9aa1ab; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px; }
+    li { margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #262b35; padding: 10px; text-align: left; font-size: 0.95rem; color: #9aa1ab; }
+    th { background-color: #0f1115; color: #ffffff; font-weight: 600; }
+    pre { background-color: #0f1115; color: #9aa1ab; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>VPN AND CONTENT FILTER DISCLOSURE</h1>
+    <div class="meta"><strong>MindLock — Digital Wellness Application</strong><br>Last Updated: June 14, 2025</div>
+    
+    <h2>1. OVERVIEW</h2>
+    <p>This disclosure explains how MindLock's Content Filter feature uses Android's VPN Service permission. We provide this disclosure in addition to our Privacy Policy because VPN functionality is a sensitive capability that deserves full transparency.</p>
+
+    <h2>2. WHAT OUR VPN DOES</h2>
+    <p>MindLock's Content Filter uses a <strong>local VPN</strong> on your device. Here is exactly what it does and does not do:</p>
+
+    <h3>What It DOES</h3>
+    <p><strong>Intercepts DNS queries</strong><br>
+    When your device makes a DNS request (a request to translate a website name like "example.com" into an IP address), our local VPN intercepts it before it leaves your device.</p>
+    
+    <p><strong>Checks against our blocked domain list</strong><br>
+    We compare the requested domain against a list of known adult content domains stored locally on your device. This list includes domains like pornhub.com, xvideos.com, and others.</p>
+    
+    <p><strong>Blocks matched domains</strong><br>
+    If the domain is on our blocked list, our local VPN returns an empty response (NXDOMAIN), effectively making that website unreachable.</p>
+    
+    <p><strong>Forwards all other DNS requests to Cloudflare Family DNS</strong><br>
+    For all non-blocked domains, DNS queries are forwarded to Cloudflare's Family DNS resolver at 1.1.1.3. This is a free, publicly available DNS service operated by Cloudflare Inc. that additionally blocks adult content categories at the DNS level. Cloudflare's privacy policy is available at <a href="https://www.cloudflare.com/privacypolicy" target="_blank">https://www.cloudflare.com/privacypolicy</a>.</p>
+    
+    <p><strong>Enforces SafeSearch</strong><br>
+    Our VPN routes DNS requests for major search engines (Google, Bing, YouTube) to their SafeSearch-enforced endpoints. This means search results automatically exclude adult content, similar to parental control settings.</p>
+
+    <h3>What It Does NOT Do</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>It does NOT...</th>
+          <th>Why this matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Connect to any external VPN server</td>
+          <td>Your data is not routed through any third-party server</td>
+        </tr>
+        <tr>
+          <td>Hide your IP address or location</td>
+          <td>This is not an anonymization tool</td>
+        </tr>
+        <tr>
+          <td>Encrypt your internet traffic</td>
+          <td>Standard HTTPS encryption from your apps/browser handles this</td>
+        </tr>
+        <tr>
+          <td>Slow down your connection significantly</td>
+          <td>Only DNS requests are intercepted; all actual data traffic passes through normally</td>
+        </tr>
+        <tr>
+          <td>Log which websites you visit</td>
+          <td>No browsing history is created by our VPN</td>
+        </tr>
+        <tr>
+          <td>Send any browsing data to us</td>
+          <td>Zero data transmission to MindLock servers</td>
+        </tr>
+        <tr>
+          <td>Block non-DNS traffic</td>
+          <td>HTTPS content is not read or inspected</td>
+        </tr>
+        <tr>
+          <td>Affect any apps when Content Filter is OFF</td>
+          <td>The VPN is only active when you toggle it ON</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. TECHNICAL ARCHITECTURE</h2>
+    <p>For users who want to understand the technical implementation:</p>
+<pre>
+Your device makes DNS request for "example.com"
+          │
+          ▼
+MindLock VPN intercepts (local TUN device)
+          │
+    ┌─────┴─────┐
+    │           │
+Blocked?      Not blocked?
+    │           │
+    ▼           ▼
+NXDOMAIN   Forward to 1.1.1.3
+response   (Cloudflare Family DNS)
+returned   → DNS response returned
+to device  to requesting app
+</pre>
+    <p>Your actual internet data traffic (the content of websites, videos, messages) is NOT intercepted. Only the initial DNS lookup (the "where is this website?" question) is processed by our VPN.</p>
+
+    <h2>4. PERMISSIONS USED</h2>
+    <p><strong>BIND_VPN_SERVICE</strong><br>
+    Required to create the local VPN tunnel. Without this permission, the Content Filter feature cannot function. This permission cannot be granted silently — Android always shows a system dialog asking you to approve a VPN connection when you enable Content Filter for the first time.</p>
+
+    <h2>5. USER CONTROL</h2>
+    <p><strong>Enabling Content Filter</strong><br>
+    When you turn on Content Filter in MindLock Settings, Android will show a system dialog: "MindLock wants to set up a VPN connection." You must tap "OK" to proceed. This is Android's built-in consent mechanism.</p>
+    
+    <p><strong>Disabling Content Filter</strong><br>
+    You can turn off the Content Filter at any time by:</p>
+    <ul>
+      <li>Toggling it OFF in MindLock Settings → Content Filter</li>
+      <li>Or by going to your phone's Settings → Network → VPN → MindLock → Disconnect</li>
+    </ul>
+
+    <p><strong>Before Making Payments</strong><br>
+    Because some banking and payment apps flag any active VPN (regardless of type) as a security concern, we recommend disabling Content Filter before using UPI, net banking, or other payment apps. App blocking and other MindLock features continue working without Content Filter.</p>
+
+    <h2>6. DATA PROCESSED BY THE VPN</h2>
+    <p>The local VPN processes DNS query packet data to extract domain names. Specifically:</p>
+    <ul>
+      <li>It reads the destination domain name from DNS query packets</li>
+      <li>It does NOT read the content of any HTTPS requests</li>
+      <li>It does NOT store individual DNS queries</li>
+      <li>Domain name data is checked against our local blocklist and then discarded</li>
+    </ul>
+    <p>The only data that leaves your device as a result of our VPN is:</p>
+    <ul>
+      <li>DNS queries for non-blocked domains, sent to Cloudflare 1.1.1.3 (same DNS traffic that would occur normally, just directed to Cloudflare Family instead of your default DNS)</li>
+    </ul>
+
+    <h2>7. THIRD-PARTY DNS: CLOUDFLARE 1.1.1.3</h2>
+    <p>Non-blocked DNS queries are forwarded to Cloudflare Family DNS (1.1.1.3 and 1.0.0.3). Cloudflare is an independent company with its own privacy policy.</p>
+    <p><strong>What Cloudflare sees:</strong> The domain names in DNS queries (same as any DNS resolver)<br>
+    <strong>What Cloudflare does:</strong> Blocks adult content categories and returns IP addresses for everything else<br>
+    <strong>Cloudflare's data practices:</strong> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+    <p>You may choose to use a different DNS resolver. Contact us at <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a> if you would like to configure a custom DNS resolver with Content Filter.</p>
+
+    <h2>8. CONTACT</h2>
+    <p>For questions about our VPN implementation:</p>
+    <p><strong>Ganesh Rathor</strong><br>
+    📧 <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a></p>
+  </div>
+</body>
+</html>

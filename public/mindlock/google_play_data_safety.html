@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Play Data Safety – MindLock</title>
+  <style>
+    body { background-color: #0f1115; color: #e8eaed; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .card { background-color: #171a21; border: 1px solid #262b35; border-radius: 14px; padding: 40px; margin-top: 20px; }
+    h1 { color: #ffffff; font-size: 2.25rem; font-weight: 700; margin-top: 0; margin-bottom: 10px; }
+    h2 { color: #ffffff; font-size: 1.5rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; border-bottom: 1px solid #262b35; padding-bottom: 8px; }
+    h3 { color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-top: 25px; margin-bottom: 10px; }
+    h4 { color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-top: 20px; margin-bottom: 10px; }
+    p { color: #9aa1ab; font-size: 0.95rem; margin-bottom: 15px; }
+    strong { color: #ffffff; }
+    a { color: #5b8cff; text-decoration: none; font-weight: 500; }
+    a:hover { color: #4a75e6; text-decoration: underline; }
+    .meta { color: #9aa1ab; font-size: 0.85rem; margin-bottom: 30px; }
+    ul, ol { color: #9aa1ab; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px; }
+    li { margin-bottom: 8px; }
+    code { background-color: #0f1115; padding: 2px 4px; border-radius: 4px; color: #e8eaed; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>GOOGLE PLAY DATA SAFETY FORM — ANSWERS</h1>
+    <div class="meta"><strong>MindLock App</strong><br>Copy these answers exactly when filling the form in Google Play Console</div>
+    
+    <h2>SECTION 1: DATA COLLECTION AND SECURITY</h2>
+    <p><strong>Question: Does your app collect or share any of the required user data types?</strong><br>
+    Answer: YES</p>
+    <p><strong>Question: Is all of the user data collected by your app encrypted in transit?</strong><br>
+    Answer: YES</p>
+    <p><strong>Question: Do you provide a way for users to request that their data is deleted?</strong><br>
+    Answer: YES<br>
+    (Users can email <a href="mailto:supportmindlock@gmail.com">supportmindlock@gmail.com</a> to request full account and data deletion)</p>
+
+    <h2>SECTION 2: DATA TYPES COLLECTED</h2>
+    <p>For each category below, select exactly as shown:</p>
+
+    <h3>PERSONAL INFO</h3>
+    <p><strong>Email address</strong></p>
+    <ul>
+      <li>Collected: YES</li>
+      <li>Shared with third parties: YES (Supabase for authentication, Razorpay for payment)</li>
+      <li>Purpose: App functionality, Account management</li>
+      <li>Optional or required: Required (for account creation; app works without account)</li>
+      <li>Ephemeral (not stored beyond session): NO</li>
+    </ul>
+
+    <h3>FINANCIAL INFO</h3>
+    <p><strong>Purchase history</strong></p>
+    <ul>
+      <li>Collected: YES</li>
+      <li>Shared: YES (Razorpay processes payment; we receive confirmation token only)</li>
+      <li>Purpose: Subscription management</li>
+      <li>Optional: Required for paid plans only</li>
+    </ul>
+    <p><strong>Payment info (card/bank details)</strong></p>
+    <ul>
+      <li>Collected: NO</li>
+      <li>Note: Razorpay handles all payment data. We never see card numbers, CVV, or bank credentials.</li>
+    </ul>
+
+    <h3>APP ACTIVITY</h3>
+    <p><strong>App interactions</strong></p>
+    <ul>
+      <li>Collected: YES</li>
+      <li>Shared: NO</li>
+      <li>Purpose: App functionality (tracking which apps user opens to enforce blocking)</li>
+      <li>Optional: NO (core feature requires this)</li>
+      <li>Ephemeral: NO (stored locally and summary synced to cloud)</li>
+    </ul>
+    <p><strong>In-app search history</strong></p>
+    <ul>
+      <li>Collected: NO</li>
+    </ul>
+    <p><strong>Installed apps</strong></p>
+    <ul>
+      <li>Collected: NO (we read which app is in foreground, not the full installed app list)</li>
+    </ul>
+    <p><strong>Other user-generated content</strong></p>
+    <ul>
+      <li>Collected: YES (intent statements typed by user when opening apps)</li>
+      <li>Shared: NO</li>
+      <li>Purpose: App functionality (showing user their own stated purposes)</li>
+      <li>Ephemeral: NO (stored locally only)</li>
+    </ul>
+
+    <h3>APP INFO AND PERFORMANCE</h3>
+    <p><strong>Crash logs</strong></p>
+    <ul>
+      <li>Collected: NO (we do not currently collect crash analytics)</li>
+    </ul>
+    <p><strong>Diagnostics</strong></p>
+    <ul>
+      <li>Collected: NO</li>
+    </ul>
+    <p><strong>Other app performance data</strong></p>
+    <ul>
+      <li>Collected: NO</li>
+    </ul>
+
+    <h3>DEVICE OR OTHER IDs</h3>
+    <p><strong>Device or other IDs</strong></p>
+    <ul>
+      <li>Collected: YES (device model and timezone, collected at account creation)</li>
+      <li>Shared: YES (stored in Supabase)</li>
+      <li>Purpose: Analytics, App functionality</li>
+      <li>Ephemeral: NO</li>
+    </ul>
+
+    <h2>SECTION 3: DATA SHARING</h2>
+    <p><strong>Question: Does your app share user data with third parties?</strong><br>
+    Answer: YES</p>
+    <p><strong>Third parties you share data with:</strong></p>
+    <ol>
+      <li><strong>Supabase</strong> — Email address, device model, usage summaries, brain health scores<br>
+      Purpose: Cloud database and user authentication<br>
+      Privacy policy: <a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></li>
+      <li><strong>Razorpay</strong> — Email address, subscription confirmation<br>
+      Purpose: Payment processing<br>
+      Privacy policy: <a href="https://razorpay.com/privacy" target="_blank">https://razorpay.com/privacy</a></li>
+    </ol>
+    <p><strong>Question: Is the data shared for a purpose that is not stated in the Privacy Policy or not required for the app to work?</strong><br>
+    Answer: NO</p>
+
+    <h2>SECTION 4: SECURITY PRACTICES</h2>
+    <p><strong>Question: Does your app use security measures?</strong><br>
+    Answer: YES</p>
+    <p><strong>Measures used:</strong></p>
+    <ul>
+      <li>Data is encrypted in transit (TLS 1.2+)</li>
+      <li>You can request that data is deleted</li>
+    </ul>
+
+    <h2>SECTION 5: SPECIAL DATA HANDLING</h2>
+    <p><strong>Question: Does your app collect data from children?</strong><br>
+    Answer: NO (age requirement is 13+)</p>
+    <p><strong>Question: Does your app include ads?</strong><br>
+    Answer: NO</p>
+
+    <h2>SECTION 6: DATA SAFETY SUMMARY (shown to users on Play Store)</h2>
+    <p>This is the public-facing summary. Fill it exactly like this in the form:</p>
+    <p><strong>Data collected:</strong></p>
+    <ul>
+      <li>Email address (required for account)</li>
+      <li>Device ID and model (for account management)</li>
+      <li>Purchase history (for subscription management)</li>
+      <li>App interactions (for app blocking features)</li>
+    </ul>
+    <p><strong>Data not collected:</strong></p>
+    <ul>
+      <li>Location data</li>
+      <li>Audio/video data</li>
+      <li>Contacts or call logs</li>
+      <li>Messages or emails</li>
+      <li>Browsing history</li>
+      <li>Health and fitness data</li>
+      <li>Financial payment details</li>
+    </ul>
+    <p><strong>Data shared:</strong></p>
+    <ul>
+      <li>Email → Supabase (authentication), Razorpay (subscription)</li>
+    </ul>
+    <p><strong>Security:</strong></p>
+    <ul>
+      <li>Data is encrypted in transit</li>
+      <li>You can request deletion</li>
+    </ul>
+    <p><strong>Commitment:</strong> MindLock does not sell your personal data. Accessibility service data never leaves your device.</p>
+
+    <h2>NOTES FOR GOOGLE PLAY REVIEW TEAM</h2>
+    <h3>Regarding Accessibility Service</h3>
+    <p>MindLock uses Accessibility Service for the following specific purposes:</p>
+    <ol>
+      <li>Detecting which app the user opens (TYPE_WINDOW_STATE_CHANGED events only) to enforce user-configured app blocks</li>
+      <li>Detecting scroll events within social media apps (TYPE_VIEW_SCROLLED) to implement the Doom Scroll Guard feature, which interrupts continuous short-video scrolling after a user-configured time threshold</li>
+      <li>Detecting private/incognito browser windows via window class name (not content) to enforce the user's content filter settings</li>
+    </ol>
+    <p>The accessibility service with <code>canRetrieveWindowContent=false</code> is used for all blocking features. A separate, optional service with <code>canRetrieveWindowContent=false</code> is used only for incognito mode detection via class name.</p>
+    <p>No accessibility event data is transmitted outside the user's device. No screen content, passwords, messages, or personal communications are read.</p>
+
+    <h3>Regarding VPN Permission</h3>
+    <p>MindLock's Content Filter feature uses Android's VPN Service to create a local DNS filter that blocks requests to adult content domains. This VPN:</p>
+    <ul>
+      <li>Runs entirely on the device</li>
+      <li>Does not connect to any external VPN server</li>
+      <li>Does not route internet traffic through any external server</li>
+      <li>Does not anonymize the user or hide their IP address</li>
+      <li>Routes DNS to Cloudflare Family DNS (1.1.1.3) for adult content filtering</li>
+      <li>Is completely optional and user-controlled</li>
+    </ul>
+
+    <h3>Regarding REQUEST_INSTALL_PACKAGES</h3>
+    <p>MindLock distributes updates directly to users. The REQUEST_INSTALL_PACKAGES permission is used to install app update APKs that the user has explicitly chosen to download from within the app, after being shown version information and release notes. Users can decline the update at any time.</p>
+  </div>
+</body>
+</html>
