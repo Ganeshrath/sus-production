@@ -1,23 +1,38 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Shield, Clock, Smartphone, AlertTriangle } from 'lucide-react';
+import { Shield, Scroll, Clock, Calendar, EyeOff, Lock } from 'lucide-react';
 
 export default function MindLock() {
   const features = [
     {
-      icon: <Smartphone className="h-6 w-6 text-primary" />,
-      title: 'Feed Blocker',
-      description: 'Automatically detects and blocks endless scrolling feeds on popular social media apps.'
+      icon: <Shield className="h-6 w-6 text-primary" />,
+      title: 'Per-App Blocking',
+      description: 'Select any app to block. A breathing pause and intent form appear before every session — so every open is intentional.'
+    },
+    {
+      icon: <Scroll className="h-6 w-6 text-primary" />,
+      title: 'Doom Scroll Guard',
+      description: 'Detects Instagram Reels, YouTube Shorts and TikTok. Shows awareness banner and auto-blocks after your set threshold.'
     },
     {
       icon: <Clock className="h-6 w-6 text-primary" />,
-      title: 'Scheduled Focus Blocks',
-      description: 'Set strict focus times where distracting apps cannot be opened.'
+      title: 'Focus Mode & Challenges',
+      description: 'Timed focus sessions with hard blocks. Earn XP, build streaks, and level up from Distracted to Mindful Master.'
     },
     {
-      icon: <AlertTriangle className="h-6 w-6 text-primary" />,
-      title: 'Built to be Strict',
-      description: 'Utilizes Android Accessibility permissions for robust enforcement that is difficult to bypass.'
+      icon: <Calendar className="h-6 w-6 text-primary" />,
+      title: 'Scheduled Blocking',
+      description: 'Set recurring block schedules by day and time. Social apps blocked automatically at night or during study hours.'
+    },
+    {
+      icon: <EyeOff className="h-6 w-6 text-primary" />,
+      title: 'Content Filter',
+      description: 'Local VPN DNS blocks 500+ adult domains. Forces SafeSearch on Google, YouTube and Bing. No data leaves your device.'
+    },
+    {
+      icon: <Lock className="h-6 w-6 text-primary" />,
+      title: 'Strict Lock Mode',
+      description: 'Activate for 1–30 days. Prevents uninstall, disables settings access, requires PIN + time expiry to deactivate.'
     }
   ];
 
@@ -37,7 +52,7 @@ export default function MindLock() {
               MindLock
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted">
-              Reclaim your attention. MindLock is an uncompromising Android focus app that blocks short-form feeds and enforces scheduled focus blocks so you can get deep work done.
+              Reclaim your attention. MindLock is an uncompromising Android focus app that blocks distracting apps, guards against doom scrolling, and visualizes the real impact on your brain health.
             </p>
             <div className="mt-10">
               <div className="rounded-[--radius-custom] border border-border bg-surface p-6">
@@ -84,7 +99,7 @@ export default function MindLock() {
               <Shield className="h-5 w-5" /> Accessibility Disclosure
             </h3>
             <p className="mt-2 text-sm text-muted">
-              MindLock requires the Android Accessibility Service permission to detect when distracting apps are launched and overlay a blocking screen. We do not transmit or store your screen content.
+              MindLock uses Android Accessibility Service to detect when distracting apps are launched and display a blocking overlay. It does NOT read, store, or transmit your screen content. VPN is used locally for DNS filtering only — no traffic is routed through external servers.
             </p>
           </div>
         </motion.div>

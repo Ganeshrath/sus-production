@@ -164,6 +164,20 @@ export default function Layout() {
               &copy; 2026 Ganesh Rathor. All rights reserved.
             </p>
           </div>
+          
+          <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-x-2 gap-y-2 text-xs text-muted/60">
+            <a href="/mindlock/privacy_policy.html" className="hover:text-primary transition-colors">MindLock Privacy Policy</a>
+            <span>|</span>
+            <a href="/mindlock/terms_of_service.html" className="hover:text-primary transition-colors">MindLock Terms & Conditions</a>
+            <span>|</span>
+            <a href="/mindlock/subscription_refund_policy.html" className="hover:text-primary transition-colors">MindLock Refund & Cancellation</a>
+            <span>|</span>
+            <a href="/mindlock/accessibility_disclosure.html" className="hover:text-primary transition-colors">MindLock Accessibility Disclosure</a>
+            <span>|</span>
+            <a href="/mindlock/vpn_disclosure.html" className="hover:text-primary transition-colors">MindLock VPN Disclosure</a>
+            <span>|</span>
+            <a href="/mindlock/google_play_data_safety.html" className="hover:text-primary transition-colors">MindLock Google Play Data Safety</a>
+          </div>
         </div>
       </footer>
     </div>

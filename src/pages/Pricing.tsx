@@ -1,7 +1,64 @@
-import { Check } from 'lucide-react';
+import { Check, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Pricing() {
+  const plans = [
+    {
+      name: "Free",
+      price: "₹0",
+      period: "",
+      subprice: "Always free",
+      badge: null,
+      features: [
+        "Block up to 5 apps",
+        "1 scheduled block",
+        "Focus sessions up to 1 hour",
+        "Today's brain stats only",
+        "Basic doom scroll awareness"
+      ],
+      delay: 0
+    },
+    {
+      name: "Pro",
+      price: "₹39",
+      period: "/ month",
+      subprice: "or ₹349 / year",
+      saveText: " (save 25%)",
+      badge: "Most Popular",
+      badgeClass: "bg-primary/10 text-primary",
+      features: [
+        "Unlimited app blocking",
+        "All focus challenges + XP system",
+        "Doom Scroll Guard with custom threshold",
+        "Scheduled blocking (unlimited)",
+        "30-day brain health history",
+        "Strict Lock Mode",
+        "Content Filter + adult domain blocking",
+        "Cancel anytime"
+      ],
+      delay: 0.1,
+      popular: true
+    },
+    {
+      name: "Premium",
+      price: "₹99",
+      period: "/ month",
+      subprice: "or ₹899 / year",
+      saveText: " (save 25%)",
+      badge: "Power Users",
+      badgeClass: "bg-white/10 text-white",
+      features: [
+        "Everything in Pro",
+        "365-day brain health history",
+        "CSV export of all stats",
+        "Unlimited custom categories",
+        "Priority support",
+        "Cancel anytime"
+      ],
+      delay: 0.2
+    }
+  ];
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="text-center">
@@ -11,83 +68,64 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="mt-20 grid gap-8 lg:grid-cols-2">
-        {/* MindLock Plan */}
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.5 }}
-           className="flex flex-col rounded-[--radius-custom] border border-border bg-surface p-8 shadow-sm"
-        >
-          <div className="mb-4 inline-flex self-start rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
-            MindLock Pro
-          </div>
-          <h2 className="text-2xl font-bold text-white">Subscription</h2>
-          <p className="mt-2 text-muted text-sm">Full access to strict app blocking and scheduled focus sessions.</p>
-          
-          <div className="mt-6 flex flex-col gap-2">
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold text-white">₹39</span>
-              <span className="text-muted">/ month</span>
+      <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {plans.map((plan, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: plan.delay }}
+            className={`flex flex-col rounded-[--radius-custom] border bg-surface p-8 shadow-sm relative ${
+              plan.popular ? 'border-primary' : 'border-border'
+            }`}
+          >
+            {plan.badge ? (
+              <div className={`mb-4 inline-flex self-start rounded-full px-3 py-1 text-sm font-semibold ${plan.badgeClass}`}>
+                {plan.badge}
+              </div>
+            ) : (
+              <div className="h-[28px] mb-4" />
+            )}
+            
+            <h2 className="text-2xl font-bold text-white">{plan.name}</h2>
+            
+            <div className="mt-6 flex flex-col gap-2">
+              <div className="flex items-baseline gap-2">
+                <span className="text-4xl font-bold text-white">{plan.price}</span>
+                {plan.period && <span className="text-muted">{plan.period}</span>}
+              </div>
+              <div className="text-sm text-muted">
+                {plan.subprice}
+                {plan.saveText && <span className="font-semibold text-foreground">{plan.saveText}</span>}
+              </div>
             </div>
-            <div className="text-sm text-muted">or <span className="font-semibold text-foreground">₹349 / year</span> (save ~25%)</div>
-          </div>
 
-          <ul className="mt-8 flex-1 space-y-4">
-            {['Block short-form video feeds', 'Scheduled focus blocks', 'Accessibility-enforced strict mode', 'Cancel anytime'].map((feature, idx) => (
-              <li key={idx} className="flex gap-3 text-sm text-foreground">
-                <Check className="h-5 w-5 shrink-0 text-primary" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        {/* AssignMate Plan */}
-        <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.5, delay: 0.1 }}
-           className="flex flex-col rounded-[--radius-custom] border border-border bg-surface p-8 shadow-sm"
-        >
-          <div className="mb-4 inline-flex self-start rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white">
-            AssignMate
-          </div>
-          <h2 className="text-2xl font-bold text-white">Pay-as-you-go</h2>
-          <p className="mt-2 text-muted text-sm">Design and preview for free. Pay only when you download a clean file.</p>
-          
-          <div className="mt-6 flex flex-col gap-2">
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold text-white">₹29</span>
-              <span className="text-muted">starting price</span>
-            </div>
-            <div className="text-sm text-muted">per document</div>
-          </div>
-
-          <div className="mt-8 flex-1 border border-border rounded-lg overflow-hidden text-sm">
-            <div className="bg-background px-4 py-3 border-b border-border font-semibold flex justify-between">
-              <span>Document Size</span>
-              <span>Price</span>
-            </div>
-            <div className="px-4 py-3 border-b border-border flex justify-between">
-              <span>Up to 20 pages</span>
-              <span className="font-medium text-white">₹29</span>
-            </div>
-            <div className="px-4 py-3 border-b border-border flex justify-between">
-              <span>21 - 30 pages</span>
-              <span className="font-medium text-white">₹39</span>
-            </div>
-            <div className="px-4 py-3 border-b border-border flex justify-between">
-              <span>31 - 40 pages</span>
-              <span className="font-medium text-white">₹49</span>
-            </div>
-            <div className="px-4 py-3 bg-background flex justify-between text-muted">
-              <span>Additional 10 pages</span>
-              <span>+ ₹10</span>
-            </div>
-          </div>
-        </motion.div>
+            <ul className="mt-8 flex-1 space-y-4">
+              {plan.features.map((feature, featureIdx) => (
+                <li key={featureIdx} className="flex gap-3 text-sm text-foreground">
+                  <Check className="h-5 w-5 shrink-0 text-primary" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Accessibility Disclosure Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-16 mx-auto max-w-3xl rounded-[--radius-custom] border border-primary/20 bg-primary/5 p-6"
+      >
+        <h3 className="flex items-center gap-2 font-semibold text-primary">
+          <Shield className="h-5 w-5" /> Accessibility Disclosure
+        </h3>
+        <p className="mt-2 text-sm text-muted">
+          MindLock uses Android Accessibility Service to detect when distracting apps are launched and display a blocking overlay. It does NOT read, store, or transmit your screen content. VPN is used locally for DNS filtering only — no traffic is routed through external servers.
+        </p>
+      </motion.div>
     </div>
   );
 }
